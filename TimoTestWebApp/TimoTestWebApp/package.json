@@ -1,0 +1,10 @@
+{
+  "name": "TimoTestWebApp",
+  "version": "0.0.0",
+  "description": "TimoTestWebApp",
+  "main": "server.js",
+  "author": {
+    "name": "timoz",
+    "email": ""
+  }
+}
