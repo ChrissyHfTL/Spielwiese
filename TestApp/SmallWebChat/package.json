@@ -1,5 +1,5 @@
 {
-  "name": "Small Web Chat",
+  "name": "SmallWebChat",
   "version": "0.0.5",
   "description": "A small web chat with express and socket.io",
   "main": "server.js",
