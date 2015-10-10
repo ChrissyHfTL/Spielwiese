@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "TestApp", "TestApp\TestApp.njsproj", "{121FBCC8-63AF-485F-815F-25BA17059EFB}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SmallWebChat", "SmallWebChat\SmallWebChat.njsproj", "{CDDD1C0F-62F3-415F-A638-BD02B04E3AA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{121FBCC8-63AF-485F-815F-25BA17059EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{121FBCC8-63AF-485F-815F-25BA17059EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{121FBCC8-63AF-485F-815F-25BA17059EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDDD1C0F-62F3-415F-A638-BD02B04E3AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDDD1C0F-62F3-415F-A638-BD02B04E3AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDDD1C0F-62F3-415F-A638-BD02B04E3AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDDD1C0F-62F3-415F-A638-BD02B04E3AA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

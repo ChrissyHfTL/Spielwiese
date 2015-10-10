@@ -1,0 +1,14 @@
+{
+  "name": "Small Web Chat",
+  "version": "0.0.5",
+  "description": "A small web chat with express and socket.io",
+  "main": "server.js",
+  "author": {
+    "name": "Specturtly",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}
