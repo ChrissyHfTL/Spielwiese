@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="public\client.js" />
+    <Compile Include="public\jquery-1.11.3.min.js" />
     <Compile Include="server.js" />
     <Content Include="config.json" />
     <Content Include="package.json" />
