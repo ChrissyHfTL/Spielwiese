@@ -7,6 +7,11 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "TestApp", "TestApp\TestApp.
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SmallWebChat", "SmallWebChat\SmallWebChat.njsproj", "{CDDD1C0F-62F3-415F-A638-BD02B04E3AA7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{51E3856F-D2ED-4587-8237-4FD663A8A481}"
+	ProjectSection(SolutionItems) = preProject
+		WebEssentials2015-Settings.json = WebEssentials2015-Settings.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
