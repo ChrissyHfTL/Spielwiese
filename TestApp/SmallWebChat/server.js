@@ -1,75 +1,68 @@
-﻿// Setup basic express server
+﻿// Einen Standard Express Server starten.
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var config = require('./config.json');
 
+// Den Server auf den Port aus der config.json horchen lassen.
 server.listen(config.port, function () {
     console.log('Server listening at port %d', config.port);
 });
 
-// Routing
+// Das Routing zum public Ordner einstellen, damit die Clients dort (und nur dort) Zugriff bekommen.
 app.use(express.static(__dirname + '/public'));
 
-// Chatroom
+// ################## CHAT ROOM ##################
 
-// usernames which are currently connected to the chat
+// Variablen um die eingeloggten Nutzer und die Anzahl nachzuverfolgen.
 var usernames = {};
 var numUsers = 0;
 
+// Hauptfunktion: Hier wird eine komplette Verbindung behandelt. Diese wird eine Verbindung aufgebaut, sobald ein Nutzer auf die Seite navigiert.
 io.on('connection', function (socket) {
+    // Initiale Belegung, dass der User noch nicht "registriert" ist.
     var addedUser = false;
     
-    // when the client emits 'new message', this listens and executes
+    // Horcht darauf, ob ein Nutzer "new message" verschickt.
     socket.on('new message', function (data) {
-        // we tell the client to execute 'new message'
+        // Allen Clients wird mitgeteilt, dass eine neue Nachricht zur Verfügung steht.
+        // Dazu wird ein Broadcast gemacht und die Informationen des Nutzers, der die Nachricht geschrieben hat, mitverschickt.
         socket.broadcast.emit('new message', {
             username: socket.username,
             message: data
         });
     });
     
-    // when the client emits 'add user', this listens and executes
+    // Horcht darauf, ob ein Nutzer "add user" verschickt.
     socket.on('add user', function (username) {
-        // we store the username in the socket session for this client
+        // Der Username des Nutzers wird in der Socket Session für den Client gespeichert.
         socket.username = username;
-        // add the client's username to the global list
+        // Der Client wird der globalen Variable aller Nutzer hinzugefügt.
         usernames[username] = username;
         ++numUsers;
+        // Der User ist nun vollständig eingeloggt.
         addedUser = true;
+        // Dem Client wird der eingeloggte Zustand über "login" mitgeteilt und die Anzahl der Nutzer übergeben.
         socket.emit('login', {
             numUsers: numUsers
         });
-        // echo globally (all clients) that a person has connected
+        // Es wird eine globale Nachricht über "user joined" versendet mit den Informationen des neuen Nutzers.
         socket.broadcast.emit('user joined', {
             username: socket.username,
             numUsers: numUsers
         });
     });
     
-    // when the client emits 'typing', we broadcast it to others
-    socket.on('typing', function () {
-        socket.broadcast.emit('typing', {
-            username: socket.username
-        });
-    });
-    
-    // when the client emits 'stop typing', we broadcast it to others
-    socket.on('stop typing', function () {
-        socket.broadcast.emit('stop typing', {
-            username: socket.username
-        });
-    });
-    
-    // when the user disconnects.. perform this
+    // Horcht darauf, ob ein Nutzer "disconnect" verschickt.
     socket.on('disconnect', function () {
-        // remove the username from global usernames list
+        // Der Client wird von der globalen Variable aller Nutzer entfernt.
+        // Es wird dazu zuvor geprüft, ob der Nutzer überhaupt korrekt eingeloggt war.
         if (addedUser) {
             delete usernames[socket.username];
             --numUsers;
             
-            // echo globally that this client has left
+            // Es wird eine globale Nachricht über "user left" versendet mit den Informationen des ausgeloggten Nutzers.
             socket.broadcast.emit('user left', {
                 username: socket.username,
                 numUsers: numUsers
