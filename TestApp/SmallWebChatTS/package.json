@@ -2,7 +2,7 @@
   "name": "SmallWebChatTS",
   "version": "0.0.0",
   "description": "SmallWebChatTS",
-  "main": "server.js",
+  "main": "server.ts",
   "author": {
     "name": "Specturtly",
     "email": ""
