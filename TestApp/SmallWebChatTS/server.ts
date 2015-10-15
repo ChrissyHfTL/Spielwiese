@@ -29,7 +29,7 @@ var numUsers = 0;
 // Hauptfunktion: Hier wird eine komplette Verbindung behandelt. Diese wird eine Verbindung aufgebaut, sobald ein Nutzer auf die Seite navigiert.
 io.on('connection', function (socket) {
     // Initiale Belegung, dass der User noch nicht "registriert" ist.
-    var addedUser: boolean = false;
+    var addedUser = false;
     
     // Horcht darauf, ob ein Nutzer "new message" verschickt.
     socket.on('new message', function (data) {
