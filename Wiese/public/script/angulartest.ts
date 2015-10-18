@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/angular2/ts/angular2" />
+/// <reference path="../../node_modules/angular2/angular2.d.ts" />
 /// <reference path="../../typings/socket.io/socket.io.d.ts" />
 
-import {bootstrap, Component, View, NgFor} from "angular2/angular2";
+import {bootstrap} from "../../node_modules/angular2/ts/angular2" ;
