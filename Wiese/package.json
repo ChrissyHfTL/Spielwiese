@@ -1,0 +1,13 @@
+{
+  "name": "tstest",
+  "version": "0.0.1",
+  "description": "SmallWebChatTS",
+  "main": "server.js",
+  "author": {
+    "name": "Specturtly",
+    "email": ""
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.44"
+  }
+}
